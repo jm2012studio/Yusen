@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>玉森</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            font-family: 'Microsoft JhengHei', '微軟正黑體', sans-serif;
+        }
+        h1, h2, h3, h4, h5, h6, input, select, textarea, button, .btn {
+            font-family: 'Microsoft JhengHei', '微軟正黑體', sans-serif;
+        }
+        .image-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .project-image {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            object-fit: cover;
+            margin-bottom: 0;
+        }
+        
+        @media (min-width: 1200px) {
+            .project-image {
+                max-width: 1200px;
+            }
+        }
+        
+        @media (min-width: 1600px) {
+            .project-image {
+                max-width: 1600px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .project-image {
+                max-width: 100%;
+            }
+        }
+        .map-container {
+            height: 300px;
+        }
+        .required-field::after {
+            content: '*';
+            color: red;
+            margin-left: 4px;
+        }
+        .form-section {
+            background-color: #f8f9fa;
+            padding: 40px 0;
+        }
+        #formSubmissionMessage {
+            display: none;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Image Stack Section -->
+    <div class="image-container">
+        <!-- Top Banner Image -->
+        <img src="1.jpg" alt="Banner" class="project-image">
+        
+        <!-- Building Image -->
+        <img src="2.jpg" alt="Building" class="project-image">
+        
+        <!-- City View Image -->
+        <img src="3.jpg" alt="City View" class="project-image">
+        
+        <!-- Interior Images -->
+        <img src="4.jpg" alt="Interior 1" class="project-image">
+        <img src="5.jpg" alt="Interior 2" class="project-image">
+        <img src="6.jpg" alt="Gym" class="project-image">
+        <img src="7.jpg" alt="Gym" class="project-image">
+    </div>
+
+    <!-- Contact Form Section -->
+    <div class="form-section">
+        <div class="container">
+            <div class="row">
+                <!-- Left Column - Business Info & Map -->
+                <div class="col-md-6">
+                    <h2 class="mb-4"><strong>玉森</strong></h2>
+                    <div>預約鑑賞</div>
+                    <div>平假日 10:00-19:00</div>
+                    <hr class="mb-4" style="opacity: 0.2;">
+                    <div class="mb-4">
+                        <p class="mb-2">新北市三重區德厚街36號</p>
+                        <p class="mb-2">(02)2995-7007</p>
+                    </div>
+                    <!-- Google Map -->
+                    <div class="map-container mb-4">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.5170805008356!2d121.47556097527654!3d25.050457677805753!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a8f715cc90c3%3A0x263ace5ae6e7e814!2zMjQx5paw5YyX5biC5LiJ6YeN5Y2A5b635Y6a6KGXMzbomZ8!5e0!3m2!1szh-TW!2stw!4v1739521570631!5m2!1szh-TW!2stw" width="100%" height="130%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+
+                <!-- Right Column - Contact Form -->
+                <div class="col-md-6">
+                    <h3 class="mb-4">聯絡人資訊</h3>
+                    <div id="formSubmissionMessage" class="alert alert-success">
+                        感謝您的來訊，我們將盡快與您聯繫。
+                    </div>                  
+                    <form id="contactForm">
+                        <div class="mb-3">
+                            <label for="name" class="form-label required-field">姓名</label>
+                            <input type="text" class="form-control" id="name" name="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="phone" class="form-label required-field">聯絡電話</label>
+                            <input type="tel" class="form-control" id="phone" name="phone" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">信箱</label>
+                            <input type="email" class="form-control" id="email" name="email">
+                        </div>
+                        <div class="mb-3">
+                            <label for="contact-time" class="form-label required-field">聯絡時間</label>
+                            <select class="form-select" id="contact-time" name="contactTime" required>
+                                <option selected disabled value="">請選擇聯絡時間</option>
+                                <option>早上 (09:00-12:00)</option>
+                                <option>下午 (12:00-17:00)</option>
+                                <option>晚上 (17:00-19:00)</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">備註</label>
+                            <textarea class="form-control" id="message" name="message" rows="4" placeholder="歡迎在此留下更多資訊，例如參觀時間或是更多資屋需求"></textarea>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="privacy-policy" required>
+                            <label class="form-check-label" for="privacy-policy">我同意並已閱讀本網站的 隱私權條款</label>
+                        </div>
+                        <button type="submit" class="btn btn-dark w-100">確認送出</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        (function() {
+            // EmailJS初始化 - 請替換為您的實際User ID
+            emailjs.init("7LRW_OMTCREkjGGde");
+        })();
+        
+        $(document).ready(function() {
+            // 處理表單提交
+            $("#contactForm").submit(function(e) {
+                e.preventDefault();
+                
+                // 顯示載入中的狀態
+                $("#formSubmissionMessage").removeClass("alert-success").addClass("alert-info").text("發送中...").fadeIn();
+                
+                // 獲取表單數據
+                var formData = {
+                    name: $("#name").val(),
+                    phone: $("#phone").val(),
+                    email: $("#email").val() || "未提供",
+                    contactTime: $("#contact-time").val(),
+                    message: $("#message").val() || "未提供"
+                };
+                
+                // 使用EmailJS發送郵件給管理員
+                // 準備發送參數
+                var templateParams = {
+                    to_name: "玉森銷售團隊",
+                    from_name: formData.name,
+                    customer_name: formData.name,
+                    customer_phone: formData.phone,
+                    customer_email: formData.email,
+                    contact_time: formData.contactTime,
+                    customer_message: formData.message,
+                    // reply_to: formData.email
+                };
+                
+                // 發送郵件給管理員 - 請替換為您實際的SERVICE_ID和TEMPLATE_ID
+                emailjs.send("service_j18k44q", "template_yugjok1", templateParams)
+                    .then(function(response) {
+                        console.log("SUCCESS!", response.status, response.text);
+                        
+                        // 顯示成功訊息
+                        $("#formSubmissionMessage").removeClass("alert-info").addClass("alert-success").text("感謝您的來訊，我們將盡快與您聯繫。");
+                        
+                        // 清空表單
+                        $("#contactForm")[0].reset();
+                        
+                        // 5秒後隱藏成功訊息
+                        setTimeout(function() {
+                            $("#formSubmissionMessage").fadeOut();
+                        }, 5000);
+                    })
+                    .catch(function(error) {
+                        console.log("FAILED...", error);
+                        $("#formSubmissionMessage").removeClass("alert-info").addClass("alert-danger").text("發送失敗，請稍後再試或直接撥打我們的電話。");
+                    });
+            });
+        });
+    </script>
+    </body>
+</html>
